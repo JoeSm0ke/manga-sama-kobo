@@ -16,4 +16,6 @@ L'installation publique via NickelMenu et l'appairage PC sont en préparation. A
 
 Le transfert CBZ direct et les tests sur une installation neuve restent à réaliser. La version personnelle en production n'est pas modifiée.
 
-Le code sera publié après contrôle des informations privées, des dépendances et des droits de redistribution.
+Un prototype de [bibliothèque CBZ locale](bridge/README.md) est disponible avec ses tests. Il sert les fichiers déjà possédés, sans connecteur de récupération. Ce n'est pas encore l'application Kobo ni son pont complet.
+
+Le reste du code sera publié après contrôle des informations privées, des dépendances et des droits de redistribution.
