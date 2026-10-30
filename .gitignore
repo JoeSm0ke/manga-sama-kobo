@@ -1,0 +1,15 @@
+.env
+.env.*
+*.key
+*.pem
+node_modules/
+build/
+dist/
+target/
+__pycache__/
+*.sqlite
+*.db
+*.cbz
+*.apk
+*.ipk
+*.log
