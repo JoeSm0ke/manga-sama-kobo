@@ -19,6 +19,16 @@ class LibraryTests(unittest.TestCase):
             for candidate in ("../volume.cbz", "/etc/passwd", "series/../../secret.cbz", "series\\volume.cbz", "series//volume.cbz"):
                 self.assertIsNone(lib.lookup(root, candidate))
             self.assertIsNone(lib.lookup(root, "missing.cbz"))
+            self.assertIsNone(lib.lookup(root, "series/volume.txt"))
+            (root / "series" / "volume.txt").write_bytes(b"not a CBZ")
+            self.assertIsNone(lib.lookup(root, "series/volume.txt"))
+            try:
+                (root / "linked.cbz").symlink_to(book)
+            except (OSError, NotImplementedError):
+                pass
+            else:
+                self.assertIsNone(lib.lookup(root, "linked.cbz"))
+                self.assertNotIn(root / "linked.cbz", lib.files_in_library(root))
 
 if __name__ == "__main__":
     unittest.main()
